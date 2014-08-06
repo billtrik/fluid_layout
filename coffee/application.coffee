@@ -1,1 +1,12 @@
-console.log 'this is only a test'
+require [
+  'jquery'
+], ($)->
+  $ ->
+    $body = $('body')
+    $('#container2').on 'mouseenter', '.box', (e)->
+      $(this).addClass 'hover'
+      $body.addClass 'box_hover'
+
+    $('#container2').on 'mouseleave', '.box', (e)->
+      $(this).removeClass 'hover'
+      $body.removeClass 'box_hover'
