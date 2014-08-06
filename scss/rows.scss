@@ -1,0 +1,10 @@
+.row{
+  width:100%;
+  margin: 0 0 20px 0;
+  &:last-child{
+    margin: 0;
+  }
+  @include respond(phone) {
+    margin:0px;
+  }
+}

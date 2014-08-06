@@ -1,0 +1,57 @@
+$container1_border_width: 10px;
+$container2_border_width: 15px;
+$container1_width: 960px;// - 2*$container1_border_width;
+$container2_width: 860px;// - 2*$container2_border_width;
+
+
+#container1{
+  height:100%;
+  margin: 0 auto;
+  width:$container1_width;
+  background-repeat: repeat;
+  background-image: url("../images/tile.gif");
+  border: $container1_border_width solid transparent;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  transition: border-color 1s ease;
+
+  @include respond(retina) {
+    background-size:200px 200px;
+  }
+}
+
+.inner_container{
+  margin: 0 auto;
+  max-width:$container2_width;
+}
+
+#container2{
+  background:grey;
+  border: $container2_border_width solid transparent;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  transition: border-color .6s ease;
+  padding: 0;
+}
+
+.box_hover{
+  #container1{
+    border-color: black;
+  }
+  #container2{
+    border-color: black;
+  }
+}
+
+/* Media queries */
+// size < 960px
+@media only screen and (max-width: 959px){
+  #container1 {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}

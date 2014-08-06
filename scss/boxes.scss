@@ -1,0 +1,86 @@
+$delete_button_size:20px;
+
+.box{
+  display:inline-block;
+  height:200px;
+  border: 5px solid transparent;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  transition: border-color .18s ease;
+
+  header{
+    height:30px;
+    position:relative;
+    h1{
+      margin:0px;
+      padding:0px;
+      background:white;
+      border:1px solid black;
+    }
+    span{
+      position:absolute;
+      top:0px;
+      right:0px;
+      height:$delete_button_size;
+      width:$delete_button_size;
+      line-height:$delete_button_size;
+      border:2px solid black;
+      background:white;
+      text-align:center;
+      &:hover{
+        color:red;
+      }
+    }
+  }
+  .prev{
+    float:left;
+    font-size:80px;
+    font-weight:bold;
+  }
+  .next{
+    float:right;
+    font-size:80px;
+    font-weight:bold;
+  }
+}
+
+/* Sizes */
+.box{
+  &.third{
+    width:33.333%;
+  }
+  &.half{
+    width:50%;
+  }
+  &.full{
+    width:100%;
+  }
+  @include respond(phone) {
+    width:100% !important;
+  }
+}
+
+/* Colors */
+.box{
+  &.highlight{
+    background: pink !important;
+  }
+  &.mod1{
+    background:transparent;
+  }
+  &.mod2{
+    background:red;
+  }
+  &.mod3{
+    background:green;
+  }
+  &.mod4{
+    background:blue;
+  }
+  &:hover{
+    border-color: black;
+  }
+}

@@ -1,0 +1,17 @@
+#stats{
+  width:100%;
+  font-size:30px;
+  line-height:30px;
+  background:white;
+  p, button{
+    width:33.333%;
+    display:inline-block;
+    margin:0;
+    padding:0;
+    text-indent: 10px;
+    @include respond(phone) {
+      width:100% !important;
+    }
+  }
+
+}

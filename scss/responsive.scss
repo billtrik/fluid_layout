@@ -1,0 +1,127 @@
+// BASIC STUFF
+$container_width: 960px;
+
+// RESPONSIVE STUFF
+$document-width      : $container_width;  // Default Document
+$min-device-width    : 320px;             // iPhone Portrait
+$tablet-device-width : 768px;             // iPad Portrait
+$max-device-width    : 2880px;            // Max Document Size
+
+// Responsive Mixins
+// TAKEN FROM GRUMBY.sass
+
+@function breakpoint($breakpoint) {
+  @if $breakpoint == $document-width {
+    @return $document-width - 1;
+  }
+  @if $breakpoint == $tablet-device-width {
+    @return $tablet-device-width - 1;
+  }
+  @if $breakpoint == $min-device-width {
+    @return $min-device-width + 1;
+  }
+}
+
+@mixin respond($media) {
+  @if $media == desktop {
+    @media only screen and (min-width: $tablet-device-width) { @content; }
+  }
+  @else if $media == phone {
+    @media only screen and (max-width: breakpoint($tablet-device-width)) { @content; }
+  }
+  @else if $media == landscape-phone {
+    @media only screen and (orientation:landscape) and (max-width: breakpoint($tablet-device-width)) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $tablet-device-width) and (max-width: $document-width - 1) { @content; }
+  }
+  @else if $media == large-screens {
+    @media only screen and (min-width: $max-device-width) { @content; }
+  }
+  @else if $media == retina {
+    @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+      only screen and (-moz-min-device-pixel-ratio: 1.5),
+      only screen and (-o-min-device-pixel-ratio: 3/2),
+      only screen and (min-device-pixel-ratio: 1.5) { @content; }
+  }
+}
+
+
+
+// FROM
+// http://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+
+// /* Smartphones (portrait and landscape) ----------- */
+// @media only screen
+// and (min-device-width : 320px)
+// and (max-device-width : 480px) {
+// /* Styles */
+// }
+
+// /* Smartphones (landscape) ----------- */
+// @media only screen
+// and (min-width : 321px) {
+// /* Styles */
+// }
+
+// /* Smartphones (portrait) ----------- */
+// @media only screen
+// and (max-width : 320px) {
+// /* Styles */
+// }
+
+// /* iPads (portrait and landscape) ----------- */
+// @media only screen
+// and (min-device-width : 768px)
+// and (max-device-width : 1024px) {
+// /* Styles */
+// }
+
+// /* iPads (landscape) ----------- */
+// @media only screen
+// and (min-device-width : 768px)
+// and (max-device-width : 1024px)
+// and (orientation : landscape) {
+// /* Styles */
+// }
+
+// /* iPads (portrait) ----------- */
+// @media only screen
+// and (min-device-width : 768px)
+// and (max-device-width : 1024px)
+// and (orientation : portrait) {
+// /* Styles */
+// }
+
+// /* Desktops and laptops ----------- */
+// @media only screen
+// and (min-width : 1224px) {
+// /* Styles */
+// }
+
+// /* Large screens ----------- */
+// @media only screen
+// and (min-width : 1824px) {
+// /* Styles */
+// }
+
+// /* iPhone 4 ----------- */
+// @media
+// only screen and (-webkit-min-device-pixel-ratio : 1.5),
+// only screen and (min-device-pixel-ratio : 1.5) {
+// /* Styles */
+// }
+
+
+// FROM HERE: http://net.tutsplus.com/tutorials/html-css-techniques/the-right-way-to-retinafy-your-websites/
+/* CSS for high-resolution devices */
+// @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+// only screen and (-moz-min-device-pixel-ratio: 1.5),
+// only screen and (-o-min-device-pixel-ratio: 3/2),
+// only screen and (min-device-pixel-ratio: 1.5) {
+//     .icons {
+//         background-image: url(icon-sprite-2x.png);
+//         background-size: 200px 100px;
+//         background-repeat: no-repeat;
+//     }
+// }

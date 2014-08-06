@@ -23,11 +23,7 @@ module.exports = (grunt) ->
       options:
         style: 'expanded'
       src:
-        expand: true,
-        cwd: 'scss',
-        src: ['**/*.scss']
-        dest: 'public/css/'
-        ext: '.css'
+        files: {'public/css/application.css' : 'scss/application.scss'}
 
     coffee:
       options:
@@ -58,6 +54,7 @@ module.exports = (grunt) ->
         files:[
           {'public/js/jquery.js' : 'bower_components/jquery/dist/jquery.js'}
           {'public/js/require.js' : 'bower_components/requirejs/require.js'}
+          {'public/images/tile.gif' : 'images/tile.gif'}
         ]
 
   require('load-grunt-tasks') grunt
