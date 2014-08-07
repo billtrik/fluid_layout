@@ -2,6 +2,16 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
+    mochaTest:
+      functional:
+        options:
+          reporter: 'spec',
+          require: [
+            'coffee-script/register'
+            'spec/functional/globals.js',
+          ]
+        src: ['spec/functional/**/*_spec.coffee']
+
     watch:
       options:
         livereload: true
@@ -10,6 +20,12 @@ module.exports = (grunt) ->
           'index.html'
         ]
         tasks: []
+
+      functional_tests:
+        files: [
+          'spec/functional/**/*_spec.coffee'
+        ]
+        tasks: ['mochaTest']
 
       coffee:
         files: ['coffee/**/*.coffee']
@@ -61,7 +77,9 @@ module.exports = (grunt) ->
   require('load-grunt-tasks') grunt
 
   #TESTING
-  grunt.registerTask 'test', []
+  grunt.registerTask 'test', [
+    'mochaTest:functional'
+  ]
 
   #BOWER TASKS
   grunt.registerTask 'bower_install', ['bower:install']
