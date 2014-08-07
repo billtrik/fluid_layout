@@ -25,6 +25,7 @@
     "requirejs": "^2.1.11"
   },
   "devDependencies": {
+    "express": "^4.8.2",
     "grunt-contrib-sass": "^0.7.3",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-shell": "^0.7.0"
