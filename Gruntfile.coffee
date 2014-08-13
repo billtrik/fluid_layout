@@ -71,6 +71,7 @@ module.exports = (grunt) ->
           {'public/js/html5shiv.js' : 'bower_components/html5shiv/dist/html5shiv.js'}
           {'public/js/jquery.js' : 'bower_components/jquery/dist/jquery.js'}
           {'public/js/require.js' : 'bower_components/requirejs/require.js'}
+          {'public/js/chroma.js' : 'bower_components/chroma-js/chroma.js'}
           {'public/images/tile.gif' : 'images/tile.gif'}
         ]
 
