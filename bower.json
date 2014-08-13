@@ -1,0 +1,11 @@
+{
+  "name": "Fluid_layout",
+  "description": "Fluid layout with boxes",
+  "license": "MIT",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14"
+  }
+}
