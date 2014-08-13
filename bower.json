@@ -5,7 +5,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
-    "requirejs": "~2.1.14"
+    "jquery": "~1.11.0",
+    "requirejs": "~2.1.14",
+    "html5shiv": "~3.7.2"
   }
 }
