@@ -35,14 +35,11 @@ App.BoxesRoute = Ember.Route.extend
 
       App.Box.ID = max_id
 
-    return @store.find('box')
+    # Hide loader
+    Ember.run.scheduleOnce 'afterRender', this, ->
+      $('#loader').fadeOut('slow')
 
-  init: ->
-    ## HACK TODO FIX
-    ## IF I REMOVE THIS THEN
-    ## ON model ABOVE, IT WILL THINK THAT
-    ## THERE ARE NO STORED MODELS
-    @store.find('box').get('length')
+    return @store.find('box')
 
 App.BoxesController = Ember.ArrayController.extend
   actions:
@@ -75,6 +72,7 @@ App.BoxesController = Ember.ArrayController.extend
       box.save()
 
     clearState: ->
+      $('#loader').show()
       @store.all('box').forEach (item)->
         item.deleteRecord()
         item.save()

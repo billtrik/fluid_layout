@@ -13,7 +13,6 @@
   <link href="/css/application.css" media="screen" rel="stylesheet" type="text/css" />
   <style>
     #loader{
-      display:none;
       position: fixed;
       top: 0;
       bottom: 0;
@@ -87,11 +86,12 @@
   <![endif]-->
 </head>
 <body>
+  <div id="loader">
+    <div class="signal"></div>
+    <p>Loading...</p>
+  </div>
+
   <script type="text/x-handlebars" id="application">
-    <div id="loader">
-      <div class="signal"></div>
-      <p>Loading...</p>
-    </div>
     <div id="container1">
       {{outlet}}
     </div>
