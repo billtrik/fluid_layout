@@ -68,6 +68,7 @@ module.exports = (grunt) ->
     copy:
       bower:
         files:[
+          {'public/js/chroma.js' : 'bower_components/chroma-js/chroma.js'}
           {'public/js/handlebars.js' : 'bower_components/handlebars/handlebars.js'}
           {'public/js/ember.js' : 'bower_components/ember/ember.js'}
           {'public/js/ember-data.js' : 'bower_components/ember-data/ember-data.js'}
