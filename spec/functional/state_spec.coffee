@@ -61,7 +61,10 @@ describe 'State', ->
     afterEach ->
       @browser.window.localStorage.clear()
 
-    xit 'resets localstorage', ()->
+    it 'resets localstorage', ()->
+      data = JSON.parse(@browser.window.localStorage.getItem('boxes_data'))
+      expect(data.items).to.have.length(1)
+      expect(data.id).to.equal(1)
 
     it 'resets the boxes', ->
       expect(@browser.queryAll('.box')).to.have.length(1)

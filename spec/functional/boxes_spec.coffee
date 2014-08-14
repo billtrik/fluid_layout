@@ -176,7 +176,7 @@ describe 'Boxes', ->
         @click ->
           new_background = container2.getAttribute('style')
           expect(new_background).to.not.equal(prev_background)
-          expect(new_background).to.equal('background-color:#f2f2f2;')
+          expect(new_background).to.equal('background-color: rgb(242, 242, 242);')
           done()
         return
 
@@ -220,7 +220,7 @@ describe 'Boxes', ->
           @click @box, ->
             new_background = container2.getAttribute('style')
             expect(new_background).to.not.equal(prev_background)
-            expect(new_background).to.equal('background-color:#e9e9e9;')
+            expect(new_background).to.equal('background-color: rgb(233, 233, 233);')
             done()
           return
 
