@@ -61,7 +61,10 @@ describe 'State', ->
     afterEach ->
       @browser.window.localStorage.clear()
 
-    xit 'resets localstorage', ()->
+    it 'resets localstorage', ->
+      expected_data = "{\"box\":{\"records\":{\"1\":{\"id\":\"1\",\"index\":1}}}}"
+      data = @browser.window.localStorage.getItem('fluid_layout')
+      expect(expected_data).to.equal(data)
 
     it 'resets the boxes', ->
       expect(@browser.queryAll('.box')).to.have.length(1)
