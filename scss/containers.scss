@@ -28,6 +28,7 @@ $container2_width: 860px;// - 2*$container2_border_width;
 }
 
 #container2{
+  font-size:0px;
   background:grey;
   border: $container2_border_width solid transparent;
   -moz-box-sizing: border-box;
