@@ -13,6 +13,7 @@
   <link href="/css/application.css" media="screen" rel="stylesheet" type="text/css" />
   <style>
     #loader{
+      display:none;
       position: fixed;
       top: 0;
       bottom: 0;
@@ -86,78 +87,37 @@
   <![endif]-->
 </head>
 <body>
-  <div id="loader">
-    <div class="signal"></div>
-    <p>Loading...</p>
-  </div>
-  <div id="container1">
-    <div id="stats" class="inner_container">
-      <p class="sum">Boxes: <span></span></p
-      ><p class="deleted">Deleted: <span></span></p
-      ><button class="clear_state">Clear State</button>
+  <script type="text/x-handlebars" id="application">
+    <div id="loader">
+      <div class="signal"></div>
+      <p>Loading...</p>
     </div>
-    <ul id="container2" class="inner_container">
-      <li class="box third mod1">
+    <div id="container1">
+      {{outlet}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="boxes">
+    <div id="stats" class="inner_container">
+      <p class="sum">Boxes: <span>{{boxesTotal}}</span></p
+      ><p class="deleted">Deleted: <span>{{boxesDeleted}}</span></p
+      ><button class="clear_state" {{action 'clearState'}}>Clear State</button>
+    </div>
+    <ul id="container2" class="inner_container" {{bind-attr style="backgroundColor"}}>
+    {{#each sortedBoxes}}
+      <li {{bind-attr class="classes"}} {{action 'create' this on='click'}}>
         <header>
-          <h1>1</h1>
-          <span class="delete">&#x2716;</span>
+          <h1>{{id}}</h1>
+          <span class="delete" {{action 'delete' this bubbles=false}}>&#x2716;</span>
         </header>
         <section>
-          <p class="prev">2</p
-          ><p class="next">2</p>
-        </section>
-      </li
-      ><li class="box third mod2">
-        <header>
-          <h1>2</h1>
-          <span class="delete">&#x2716;</span>
-        </header>
-        <section>
-          <p class="prev">2</p
-          ><p class="next">2</p>
-        </section>
-      </li
-      ><li class="box third mod3">
-        <header>
-          <h1>3</h1>
-          <span class="delete">&#x2716;</span>
-        </header>
-        <section>
-          <p class="prev">2</p
-          ><p class="next">2</p>
+          <p class="prev">{{prevId}}</p
+          ><p class="next">{{nextId}}</p>
         </section>
       </li>
-      <li class="box half mod4">
-        <header>
-          <h1>4</h1>
-          <span class="delete">&#x2716;</span>
-        </header>
-        <section>
-          <p class="prev">2</p
-          ><p class="next">2</p>
-        </section>
-      </li><li class="box half mod1">
-        <header>
-          <h1>5</h1>
-          <span class="delete">&#x2716;</span>
-        </header>
-        <section>
-          <p class="prev">2</p
-          ><p class="next">2</p>
-        </section>
-      </li>
-      <li class="box highlight full mod2">
-        <header>
-          <h1>6</h1>
-          <span class="delete">&#x2716;</span>
-        </header>
-        <section>
-          <p class="prev">2</p
-          ><p class="next">2</p>
-        </section>
-      </li>
+    {{/each}}
     </ul>
-  </div>
+  </script>
 
   <script src="/js/jquery.js" type="text/javascript"></script>
   <script src="/js/handlebars.js" type="text/javascript"></script>
